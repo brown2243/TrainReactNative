@@ -3,14 +3,14 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'RnDataBaseApp' do
+target 'RnSqliteApp' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
 
-  target 'RnDataBaseAppTests' do
+  target 'RnSqliteAppTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -25,10 +25,10 @@ target 'RnDataBaseApp' do
   end
 end
 
-target 'RnDataBaseApp-tvOS' do
-  # Pods for RnDataBaseApp-tvOS
+target 'RnSqliteApp-tvOS' do
+  # Pods for RnSqliteApp-tvOS
 
-  target 'RnDataBaseApp-tvOSTests' do
+  target 'RnSqliteApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
