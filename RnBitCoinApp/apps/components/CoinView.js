@@ -87,7 +87,7 @@ class CoinView extends Component {
                     params: { limit: 10 },
                 })
                 .then(res => {
-                    console.log(res.data);
+                    //console.log(res.data.data);
 
                     const date = new Date();
                     const now = date.toLocaleString();
@@ -95,10 +95,10 @@ class CoinView extends Component {
                     //     this.props._setRefreshDate(now); // Run func type props
                     // }
                     var result = [];
-                    // this.setState({
-                    //     coinData: res.data,
-                    //     isLoading: false,
-                    // });
+                    this.setState({
+                        coinData: res.data.data,
+                        isLoading: false,
+                    });
                 })
                 .catch(err => console.error(`error : ${err}`));
         } catch (error) {
@@ -107,8 +107,9 @@ class CoinView extends Component {
     }
 
     render() {
-        let detailCells = sampleData.map((data, index) => {
+        let detailCells = this.state.coinData.map((data, index) => {
             const { cmc_rank, name, num_market_pairs, total_supply, last_updated } = data; // Destructuring
+            //console.log(data);
             return (
                 <CoinItem
                     key={index}
