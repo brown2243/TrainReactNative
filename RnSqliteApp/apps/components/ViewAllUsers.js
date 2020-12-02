@@ -26,7 +26,7 @@ const ViewAllUsers = ({navigation}) => {
                 }
             );
         });
-    }, []); // 재확인...
+    }, []);
 
     const newListItems = listItems.map((item, index) =>
         <View key={index} style={{ borderBottomColor: '#0000ff', borderBottomWidth: 1 }}>
