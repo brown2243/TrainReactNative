@@ -28,8 +28,9 @@ const ViewAllUsers = ({navigation}) => {
         });
     }, []);
 
-    const newListItems = listItems.map((item, index) => 
+    const newListItems = listItems.map((item, index) =>
         <View key={index} style={{ borderBottomColor: '#0000ff', borderBottomWidth: 1 }}>
+            <Text children={item.user_id} />
             <Text children={item.user_name} />
             <Text children={item.user_contact} />
             <Text children={item.user_address} />
@@ -40,13 +41,7 @@ const ViewAllUsers = ({navigation}) => {
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>
                 <View style={{ flex: 1 }}>
-                    {listItems.map((item, index) => 
-                        <View key={index} style={{ borderBottomColor: '#0000ff', borderBottomWidth: 1 }}>
-                            <Text children={item.user_name} />
-                            <Text children={item.user_contact} />
-                            <Text children={item.user_address} />
-                        </View> 
-                    )}
+                    {newListItems}
                 </View>
                 <MyButton title="메인으로" onButtonClick={() => navigation.navigate('HomeScreen')} />
             </ScrollView>
