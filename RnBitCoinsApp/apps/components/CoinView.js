@@ -1,41 +1,43 @@
+/* eslint-disable no-alert */
 import React, {Component} from 'react';
 import {View, StyleSheet, Button, ScrollView} from 'react-native';
 import axios from 'axios';
 
 import CoinItem from './CoinItem';
+import {getCoinIconUri} from '../data/constants';
 
 const sampleData = [
   {
-    "circulating_supply": 185000,
-    "cmc_rank": 1,
-    "date_added": "2020-12-01T00:00:00.000Z",
-    "id": 1,
-    "last_updated": "2020-12-01T00:00:00.000Z",
-    "max_supply": 21000000,
-    "name": "Bitcoin",
-    "num_market_pairs": 9550,
-    "platform": null,
-    "quote": [Object],
-    "slug": "bitcoin",
-    "symbol": "BTC",
-    "tags": [Array],
-    "total_supply": 185000,
+    circulating_supply: 185000,
+    cmc_rank: 1,
+    date_added: '2020-12-01T00:00:00.000Z',
+    id: 1,
+    last_updated: '2020-12-01T00:00:00.000Z',
+    max_supply: 21000000,
+    name: 'Bitcoin',
+    num_market_pairs: 9550,
+    platform: null,
+    quote: [Object],
+    slug: 'bitcoin',
+    symbol: 'BTC',
+    tags: [Array],
+    total_supply: 185000,
   },
   {
-    "circulating_supply": 111111,
-    "cmc_rank": 2,
-    "date_added": "2020-12-01T00:00:00.000Z",
-    "id": 2,
-    "last_updated": "2020-12-01T00:00:00.000Z",
-    "max_supply": null,
-    "name": "Ethereum",
-    "num_market_pairs": 5775,
-    "platform": null,
-    "quote": [Object],
-    "slug": "ethereum",
-    "symbol": "ETH",
-    "tags": [Array],
-    "total_supply": 111111,
+    circulating_supply: 111111,
+    cmc_rank: 2,
+    date_added: '2020-12-01T00:00:00.000Z',
+    id: 2,
+    last_updated: '2020-12-01T00:00:00.000Z',
+    max_supply: null,
+    name: 'Ethereum',
+    num_market_pairs: 5775,
+    platform: null,
+    quote: [Object],
+    slug: 'ethereum',
+    symbol: 'ETH',
+    tags: [Array],
+    total_supply: 111111,
   },
 ];
 
@@ -88,11 +90,11 @@ export default class CoinView extends Component {
       console.error('getCoinData() :', error);
       alert('API오류 발생,\n관리자문의요망');
     }
-  }
+  };
 
   render() {
-    let coinItems = sampleData.map((item, index) => {
-      const {cmc_rank, id, name, num_market_pairs, total_supply} = item; // item을 객체 재구성
+    let coinItems = this.state.coinData.map((item, index) => {
+      const {cmc_rank, name, num_market_pairs, total_supply, symbol} = item; // item을 객체 재구성
 
       return (
         <CoinItem
@@ -101,6 +103,8 @@ export default class CoinView extends Component {
           rank={cmc_rank}
           price={num_market_pairs}
           volumn={total_supply}
+          symbol={symbol}
+          iconUri={getCoinIconUri(name)}
         />
       );
     });

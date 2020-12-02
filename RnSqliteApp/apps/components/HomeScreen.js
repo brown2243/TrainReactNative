@@ -30,7 +30,7 @@ const HomeScreen = ({navigation}) => {
                 }
             );
         });
-    });
+    }, []);
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -43,8 +43,10 @@ const HomeScreen = ({navigation}) => {
                     onButtonClick={() => navigation.navigate('ViewAllUsers')} />
                 <MyButton title="사용자 조회"
                     onButtonClick={() => navigation.navigate('ViewUser')} />
-                <MyButton title="사용자 수정" />
-                <MyButton title="사용자 삭제" />
+                <MyButton title="사용자 수정"
+                    onButtonClick={() => navigation.navigate('UpdateUser')} />
+                <MyButton title="사용자 삭제"
+                    onButtonClick={() => navigation.navigate('DeleteUser')} />
             </View>
         </SafeAreaView>
     );

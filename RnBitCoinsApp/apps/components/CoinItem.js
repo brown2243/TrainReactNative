@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
 export default class CoinItem extends Component {
   numberWithCommas(x) {
@@ -7,14 +8,20 @@ export default class CoinItem extends Component {
   }
 
   render() {
+    console.log('CoinItem :', this.props.iconUri);
     return (
       <View style={styles.subContainer}>
-        <Image source={require('../images/bitcoin.png')} style={styles.coin} />
+        <Image source={{uri: this.props.iconUri}} style={styles.coin} />
         <View style={styles.coinDetail}>
           <Text children={this.props.name} style={styles.coinName} />
-          <Text children={`vol:${this.numberWithCommas(Number(this.props.volumn))}`} style={{color:'white'}} />
-          <Text children={`$ ${this.numberWithCommas(Number(this.props.price))}`} />
-          <Text children={'#' + this.props.rank} style={{fontSize:20}} />
+          <Text
+            children={`vol:${this.numberWithCommas(Number(this.props.volumn))}`}
+            style={{color: 'white'}}
+          />
+          <Text
+            children={`$ ${this.numberWithCommas(Number(this.props.price))}`}
+          />
+          <Text children={'#' + this.props.rank} style={{fontSize: 20}} />
         </View>
       </View>
     );
