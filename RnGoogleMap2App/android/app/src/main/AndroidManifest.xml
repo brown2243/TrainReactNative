@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -15,7 +15,7 @@
       android:theme="@style/AppTheme">
       <meta-data 
         android:name="com.google.android.geo.API_KEY" 
-        android:value="AIzaSyBOUlWOA-QeRGlZpoTLu10YjzlQldAP8pY"/>
+        android:value="AIzaSyCY_TiM3rrlc5DKUKRgnVasMrjFn-loDAc"/>
 
       <!-- You will also only need to add this uses-libray tag --> 
       <uses-library android:name="org.apache.http.legacy" android:required="false"/>
